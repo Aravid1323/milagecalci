@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milage Calculator</title>
+    <style>
+        body{
+            background-image: url(images/Tanker-Desktop-LT.jpg);
+            background-repeat: no-repeat;
+            background-size: 100em;
+        }
+        #container{
+            height: 5in;
+            width: 4in;
+            background-color: rgb(177, 199, 199);
+            margin: 80px;
+        }
+        #tc{
+            height: 30px;
+            width: 100px;
+            margin-left: 20px;
+            padding-left: 10px;
+            text-transform: uppercase;
+            background-color: white;
+            border: initial;
+            border-radius: 10px;
+        }
+        #vno{
+            padding: 20px;
+        }
+        #mip{
+            height: 30px;
+            width: 50px;
+            border-radius: 10px;
+            border: inherit;
+            padding-left:  10px;
+            margin: 10px;
+            
+        }
+        #mcap{
+        
+            padding-left: 20px;
+        }
+        .tkm{
+            height: 30px;
+            width: 50px;
+            border-radius: 10px;
+            border: inherit;
+            padding-left: 10px;
+            margin-left: 20px;
+            
+        }
+         
+      
+        #fad{
+            height: 30px;
+            width: 50px;
+            border-radius: 10px;
+            border: inherit;
+            padding-left: 10px;
+        }
+        #fadd{
+            
+            margin-top: 30px;
+            margin-left: 20px;
+        }
+        #calbt{
+            text-align: center;
+            margin-top: 40px;
+        }
+        #cal{
+            height: 30px;
+            width: 80px;
+            border-radius:20px ;
+            border: inherit;
+        }
+        #cal:hover{
+            border: solid 1px black;
+            background: rgb(122, 124, 124);
+        }
+        #cal:active{
+            margin: 4px
+        }
+        .km{
+            margin-top: 30px;
+            margin-left: 20px;
+        }
+        #btm{
+            height: 70px;
+            width: 100px;
+            text-align: center;
+            margin-top: 20px;
+            background-color: white;
+            margin-left: 10rem;
+            border-radius: 10px;
+        }
+        .a{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="vno">
+            <span>Enter Vechicle no :</span><span><input type="text" name="" id="tc" maxlength="10" placeholder="TN 00 XX 0000"></span>
+        </div>
+        <div id="mcap">
+            <span id="mtxt">Max Fuel Capacity :</span>
+            <span><input type="text" name="max capacity" id="mip" maxlength="4" placeholder="0000"></span>
+            
+        </div>
+        <div id="Fkm" class="km">
+            <span>Trip Finish  Km :</span>
+            <span><input type="text" name="" id="fkm" class="tkm" maxlength="6" placeholder="000000"> </span>
+        </div>
+        <div id="Skm" class="km">
+            <span>Trip start Km :</span>
+            <input type="text" name="" id="skm" class="tkm" maxlength="6" placeholder="000000"> 
+        </div>
+        
+        <div id="fadd">
+            <span>Fuel Filled After Trip : </span>
+            <span><input type="text" name="" id="fad" maxlength="4" placeholder="0000"> </span>
+
+        </div>
+        <div id="calbt">
+            <button type="submit" id="cal">Calculate</button>
+        </div>
+        <div id="btm">
+        
+            <div id="tripkm" class="a">
+
+                <span id="trip">00000</span><sup>km</sup>
+            </div>
+            <div id="milage" class="a">
+                <b><span id="tripmilage">0.0</span></b><sub>km/l</sub>
+            </div>
+        </div>
+    </div>
+    <script>
+        function calmilage(){
+            var fuel=document.getElementById("fad").value;
+            var fkm=document.getElementById("fkm").value;
+            var skm=document.getElementById("skm").value;
+            var kilometer=(fkm-skm);
+            var millage= (kilometer/fuel);
+            document.getElementById("tripkm").style.display="block";
+            document.getElementById("trip").innerHTML=kilometer;
+            document.getElementById("milage").style.display="block";
+            document.getElementById("tripmilage").innerHTML=(millage);
+        }
+
+        document.getElementById("tripkm").style.display="none";
+        document.getElementById("milage").style.display="none";
+        document.getElementById("cal").onclick=function(){
+            calmilage();
+            
+        };
+    </script>
+    
+</body>
+</html>
